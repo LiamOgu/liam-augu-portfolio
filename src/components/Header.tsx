@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -6,29 +6,44 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-            Mon Portfolio
+          <Link
+            href="/"
+            className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+          >
+            Lïam Augu
           </Link>
 
           {/* Navigation */}
           <ul className="hidden md:flex items-center gap-8">
             <li>
-              <Link href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link
+                href="#about"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
                 À propos
               </Link>
             </li>
             <li>
-              <Link href="#projects" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link
+                href="#projects"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
                 Projets
               </Link>
             </li>
             <li>
-              <Link href="#skills" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link
+                href="#skills"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
                 Compétences
               </Link>
             </li>
             <li>
-              <Link href="#experience" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link
+                href="#experience"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
                 Expérience
               </Link>
             </li>
@@ -44,8 +59,18 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button className="md:hidden p-2 text-gray-700 hover:text-blue-600">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>

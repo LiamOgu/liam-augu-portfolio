@@ -5,103 +5,92 @@ import SkillBadge from "@/components/SkillBadge";
 import { experiences } from "@/data/experiences";
 import { projects } from "@/data/projects";
 import { skillCategories, skills } from "@/data/skills";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  const featuredProjects = projects.filter((p) => p.featured);
-
   return (
     <>
-      {/* Hero Section */}
-      <Section id="hero" background="gradient" className="pt-32 pb-20">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Bonjour, je suis{" "}
-            <span className="text-blue-600">Développeur Full-Stack</span>
-          </h1>
-          <p className="text-xl text-gray-700 mb-8">
-            Passionné par la création d&apos;applications web modernes,
-            performantes et accessibles. Je transforme vos idées en solutions
-            digitales innovantes.
+      {/* Header Section - Photo + Infos */}
+      <Section id="home" className="pt-20 pb-12">
+        <div className="flex flex-col items-center text-center">
+          {/* Photo de profil ronde */}
+          <div className="relative w-32 h-32 mb-6">
+            <div className="w-full h-full rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden">
+              <Image
+                src="/images/profile/avatar.jpg"
+                alt="Photo de profil"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Nom et titre */}
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Lïam Augu</h1>
+          <p
+            className="text-lg text-gray-600 mb-6
+"
+          >
+            Développeur Full-Stack
           </p>
-          <div className="flex gap-4 justify-center">
-            <a
-              href="#projects"
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+
+          {/* Bouton CV */}
+          <Link
+            href="/cv.pdf"
+            target="_blank"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              Voir mes projets
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors shadow-lg border-2 border-gray-200"
-            >
-              Me contacter
-            </a>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Télécharger mon CV
+          </Link>
         </div>
       </Section>
 
-      {/* À propos */}
-      <Section
-        id="about"
-        title="À propos de moi"
-        subtitle="Découvrez mon parcours et ma passion pour le développement web"
-      >
+      {/* À propos - Version simple */}
+      <Section id="about" title="À propos">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <p className="text-gray-700 text-lg leading-relaxed mb-4">
-              Développeur Full-Stack avec plusieurs années d&apos;expérience
-              dans la création d&apos;applications web modernes. Je me
-              spécialise dans l&apos;écosystème JavaScript/TypeScript, avec une
-              expertise particulière en React, Next.js et Node.js.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed mb-4">
-              Passionné par les nouvelles technologies et les bonnes pratiques
-              de développement, je m&apos;efforce constamment d&apos;apprendre
-              et d&apos;améliorer mes compétences. J&apos;aime résoudre des
-              problèmes complexes et créer des expériences utilisateur
-              exceptionnelles.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              En dehors du code, j&apos;apprécie partager mes connaissances avec
-              la communauté et contribuer à des projets open source.
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
+            <p className="text-gray-700 leading-relaxed">
+              Développeur Full-Stack passionné par la création
+              d&apos;applications web modernes et performantes. Je me spécialise
+              dans l&apos;écosystème JavaScript/TypeScript avec React, Next.js
+              et Node.js. J&apos;aime créer des expériences utilisateur fluides
+              et des solutions techniques élégantes.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* Projets */}
-      <Section
-        id="projects"
-        title="Mes Projets"
-        subtitle="Découvrez quelques-uns de mes projets récents"
-        background="gray"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {featuredProjects.map((project) => (
+      {/* Projets - Grille compacte */}
+      <Section id="projects" title="Projets">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects
-            .filter((p) => !p.featured)
-            .map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-        </div>
       </Section>
 
-      {/* Compétences */}
-      <Section
-        id="skills"
-        title="Mes Compétences"
-        subtitle="Les technologies et outils que je maîtrise"
-      >
+      {/* Compétences - Design sobre et compact */}
+      <Section id="skills" title="Compétences">
         {skillCategories.map((category) => (
-          <div key={category} className="mb-12 last:mb-0">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div key={category} className="mb-8 last:mb-0">
+            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
               {category}
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {skills
                 .filter((skill) => skill.category === category)
                 .map((skill) => (
@@ -113,12 +102,7 @@ export default function Home() {
       </Section>
 
       {/* Expérience */}
-      <Section
-        id="experience"
-        title="Mon Expérience"
-        subtitle="Mon parcours professionnel"
-        background="gray"
-      >
+      <Section id="experience" title="Expérience">
         <div className="max-w-4xl mx-auto">
           {experiences.map((experience) => (
             <ExperienceItem key={experience.id} experience={experience} />
@@ -126,51 +110,49 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Contact */}
-      <Section
-        id="contact"
-        title="Contactez-moi"
-        subtitle="Discutons de votre prochain projet"
-      >
+      {/* Contact - Version simple */}
+      <Section id="contact" title="Contact">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Nom complet
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Votre nom"
-                />
-              </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-8">
+            <form className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Nom
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                    placeholder="Votre nom"
+                  />
+                </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="votre@email.com"
-                />
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                    placeholder="votre@email.com"
+                  />
+                </div>
               </div>
 
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-gray-700 mb-1"
                 >
                   Sujet
                 </label>
@@ -178,7 +160,7 @@ export default function Home() {
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
                   placeholder="Sujet de votre message"
                 />
               </div>
@@ -186,34 +168,34 @@ export default function Home() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-gray-700 mb-1"
                 >
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={6}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  rows={5}
+                  className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
                   placeholder="Votre message..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+                className="w-full px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
               >
                 Envoyer le message
               </button>
             </form>
 
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <p className="text-center text-gray-600 mb-4">
-                Ou contactez-moi directement par email :
+            <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+              <p className="text-sm text-gray-600 mb-2">
+                Ou par email directement :
               </p>
               <a
                 href="mailto:contact@example.com"
-                className="block text-center text-blue-600 hover:text-blue-700 font-semibold text-lg"
+                className="text-gray-900 hover:text-gray-700 font-medium"
               >
                 contact@example.com
               </a>
