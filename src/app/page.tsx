@@ -16,12 +16,12 @@ export default function Home() {
         <div className="flex flex-col items-center text-center">
           {/* Photo de profil ronde */}
           <div className="relative w-32 h-32 mb-6">
-            <div className="w-full h-full rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden">
+            <div className="w-full h-full rounded-full bg-gray-200 border-4 border-gray-100 shadow-lg overflow-hidden">
               <Image
-                src="/images/profile/avatar.jpg"
+                src="/images/profile/profile.jpg"
                 alt="Photo de profil"
                 fill
-                className="object-cover"
+                className="object-cover rounded-full scale-97"
               />
             </div>
           </div>
@@ -194,10 +194,10 @@ export default function Home() {
                 Ou par email directement :
               </p>
               <a
-                href="mailto:contact@example.com"
+                href="mailto:augu.liam@gmail.com"
                 className="text-gray-900 hover:text-gray-700 font-medium"
               >
-                contact@example.com
+                augu.liam@gmail.com
               </a>
             </div>
           </div>

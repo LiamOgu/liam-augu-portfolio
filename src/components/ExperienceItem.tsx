@@ -32,7 +32,7 @@ export default function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
     <div className="border-l-2 border-gray-200 pl-6 pb-8 last:pb-0 relative">
       {/* Dot */}
-      <div className="absolute -left-[9px] top-0 w-4 h-4 bg-gray-900 rounded-full border-2 border-white"></div>
+      <div className="absolute -left-2.25 top-0 w-4 h-4 bg-gray-900 rounded-full border-2 border-white"></div>
 
       {/* Contenu */}
       <div>
