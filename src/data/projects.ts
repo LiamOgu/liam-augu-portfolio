@@ -43,7 +43,7 @@ export const projects: Project[] = [
     id: "3",
     title: "Wikipi",
     description:
-      "Spot the Square est un jeu web interactif inspiré du damier d’échecs. Le but est de cliquer le plus rapidement possible sur la case demandée, selon différents modes de jeu.",
+      "Un site permettant aux élèves/professeurs de l'IPI de pouvoir publier leur projets et documentations.",
     tags: ["React", "Node.js", "Express", "MySql", "Tailwind CSS"],
     imageUrl: "/images/projects/wikipi1-v1.jpeg",
     githubUrl: "https://github.com/LiamOgu/wikipi",
