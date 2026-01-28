@@ -1,28 +1,30 @@
-# Portfolio - Développeur Full-Stack
+# Portfolio - Lïam Augu
 
-Un portfolio moderne et responsive construit avec Next.js 15, TypeScript et Tailwind CSS.
+Un portfolio moderne et responsive construit avec Next.js 16, TypeScript et Tailwind CSS v4.
 
 ## 🚀 Caractéristiques
 
 - ✨ Design moderne et responsive
+- 🌙 **Mode sombre** avec détection automatique de la préférence système
 - 🎨 Animations fluides et interface intuitive
 - 📱 Mobile-first et entièrement responsive
 - 🔍 Optimisé pour le SEO
-- ⚡ Performance optimale avec Next.js 15
+- ⚡ Performance optimale avec Next.js 16 (Turbopack)
 - 🎯 TypeScript pour la sécurité des types
-- 🎨 Tailwind CSS pour un styling rapide
+- 🎨 Tailwind CSS v4 pour un styling rapide
 
 ## 📁 Structure du projet
 
 ```
 src/
  ├─ app/                 # Pages et layout Next.js (App Router)
- │   ├─ layout.tsx       # Layout principal avec Header et Footer
- │   ├─ page.tsx         # Page d'accueil
- │   └─ globals.css      # Styles globaux
+ │   ├─ layout.tsx       # Layout principal avec Sidebar et Footer
+ │   ├─ page.tsx         # Page d'accueil (single-page)
+ │   └─ globals.css      # Styles globaux + configuration dark mode
  │
  ├─ components/          # Composants React réutilisables
- │   ├─ Header.tsx       # En-tête de navigation
+ │   ├─ Sidebar.tsx      # Sidebar de navigation (desktop fixe, mobile drawer)
+ │   ├─ SidebarContent.tsx # Contenu de la sidebar avec toggle dark mode
  │   ├─ Footer.tsx       # Pied de page avec liens sociaux
  │   ├─ Section.tsx      # Composant de section générique
  │   ├─ ProjectCard.tsx  # Carte d'affichage de projet
@@ -35,21 +37,22 @@ src/
  │   └─ experiences.ts   # Liste des expériences
  │
  └─ lib/                 # Utilitaires et configurations
-     └─ metadata.ts      # Métadonnées SEO du site
+     ├─ metadata.ts      # Métadonnées SEO du site
+     └─ ThemeContext.tsx # Context React pour la gestion du thème
 ```
 
 ## 🛠️ Technologies
 
-- **Next.js 15** - Framework React
+- **Next.js 16** - Framework React avec Turbopack
 - **TypeScript** - Typage statique
-- **Tailwind CSS** - Framework CSS utility-first
-- **React** - Bibliothèque UI
+- **Tailwind CSS v4** - Framework CSS utility-first
+- **React 19** - Bibliothèque UI
 
 ## 📦 Installation
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/portfolio.git
+git clone https://github.com/LiamOgu/portfolio.git
 
 # Installer les dépendances
 npm install
@@ -60,78 +63,50 @@ npm run dev
 
 Le site sera accessible sur [http://localhost:3000](http://localhost:3000)
 
+## 🌙 Mode Sombre
+
+Le portfolio inclut un mode sombre complet avec :
+
+- **Détection automatique** de la préférence système (`prefers-color-scheme`)
+- **Persistance** du choix utilisateur dans `localStorage`
+- **Transition fluide** entre les modes
+- **Bouton de toggle** dans la sidebar
+
+### Implémentation technique
+
+Le dark mode utilise Tailwind CSS v4 avec une configuration personnalisée :
+
+```css
+/* globals.css */
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+Cette configuration permet d'utiliser les classes `dark:*` basées sur la présence de la classe `.dark` sur `<html>`, plutôt que sur la media query système.
+
+**Fichiers impliqués :**
+
+- `src/app/globals.css` - Configuration Tailwind du dark mode
+- `src/app/layout.tsx` - Script de pré-initialisation (évite le flash)
+- `src/lib/ThemeContext.tsx` - Context React pour gérer l'état du thème
+- `src/components/SidebarContent.tsx` - Bouton de toggle
+
 ## 🎨 Personnalisation
 
 ### 1. Informations personnelles
 
-Modifiez le fichier `src/lib/metadata.ts` :
-
-```typescript
-export const siteMetadata = {
-  title: "Votre Nom - Développeur Full-Stack",
-  author: "Votre Nom",
-  description: "Votre description...",
-  // ... autres informations
-};
-```
+Modifiez le fichier `src/lib/metadata.ts` pour vos métadonnées SEO.
 
 ### 2. Projets
 
-Ajoutez/modifiez vos projets dans `src/data/projects.ts` :
-
-```typescript
-export const projects: Project[] = [
-  {
-    id: "1",
-    title: "Votre Projet",
-    description: "Description du projet...",
-    tags: ["React", "Node.js"],
-    imageUrl: "/images/votre-projet.jpg",
-    githubUrl: "https://github.com/...",
-    liveUrl: "https://...",
-    featured: true,
-  },
-  // ... autres projets
-];
-```
+Ajoutez/modifiez vos projets dans `src/data/projects.ts`
 
 ### 3. Compétences
 
-Ajoutez/modifiez vos compétences dans `src/data/skills.ts` :
-
-```typescript
-export const skills: Skill[] = [
-  {
-    id: "1",
-    name: "React",
-    category: "Frontend",
-    level: 5, // 1-5
-    icon: "⚛️",
-  },
-  // ... autres compétences
-];
-```
+Ajoutez/modifiez vos compétences dans `src/data/skills.ts`
 
 ### 4. Expériences
 
-Ajoutez/modifiez vos expériences dans `src/data/experiences.ts` :
-
-```typescript
-export const experiences: Experience[] = [
-  {
-    id: "1",
-    title: "Votre Poste",
-    company: "Nom de l'entreprise",
-    location: "Ville, Pays",
-    startDate: "2022-01",
-    endDate: null, // null pour poste actuel
-    description: "Description du poste...",
-    tasks: ["Tâche 1", "Tâche 2"],
-    technologies: ["React", "Node.js"],
-  },
-  // ... autres expériences
-];
-```
+Ajoutez/modifiez vos expériences dans `src/data/experiences.ts`
 
 ### 5. Images
 
@@ -140,64 +115,50 @@ Placez vos images dans le dossier `public/images/` :
 ```
 public/
  └─ images/
-     ├─ project1.jpg
-     ├─ project2.jpg
-     └─ ...
+     ├─ profile/
+     │   └─ profile.jpg
+     └─ projects/
+         ├─ project1.jpg
+         └─ ...
 ```
 
 ## 📝 Sections du Portfolio
 
-Le portfolio comprend les sections suivantes :
+Le portfolio est une single-page avec les sections suivantes :
 
-1. **Hero** - Section d'accueil avec présentation
-2. **À propos** - Description personnelle et parcours
-3. **Projets** - Galerie de vos projets avec filtres
-4. **Compétences** - Vos compétences techniques par catégorie
-5. **Expérience** - Timeline de votre parcours professionnel
-6. **Contact** - Formulaire de contact et liens
-
-## 🚧 À faire
-
-- [ ] Remplacer les données factices par vos vraies informations
-- [ ] Ajouter vos images de projets
-- [ ] Implémenter la fonctionnalité du formulaire de contact
-- [ ] Implémenter le menu mobile
-- [ ] Ajouter des animations (ex: Framer Motion)
-- [ ] Configurer Google Analytics
-- [ ] Ajouter un mode sombre
-- [ ] Optimiser les images
+1. **Accueil** (`#home`) - Photo de profil et présentation
+2. **À propos** (`#about`) - Description personnelle
+3. **Projets** (`#projects`) - Galerie de projets
+4. **Compétences** (`#skills`) - Compétences techniques par catégorie
+5. **Expérience** (`#experience`) - Timeline du parcours professionnel
+6. **Contact** (`#contact`) - Formulaire de contact
 
 ## 📱 Responsive Design
 
-Le portfolio est entièrement responsive et optimisé pour :
+Le portfolio est entièrement responsive avec :
 
-- 📱 Mobile (320px+)
-- 📱 Tablette (768px+)
-- 💻 Desktop (1024px+)
-- 🖥️ Large Desktop (1280px+)
+- **Sidebar fixe** sur desktop (≥768px)
+- **Menu hamburger** sur mobile avec drawer animé
+- **Bouton "retour en haut"** sur mobile
 
-## 🎯 SEO
+## 🚧 Scripts disponibles
 
-Le portfolio est optimisé pour le référencement avec :
-
-- Métadonnées complètes
-- Open Graph tags
-- Twitter Cards
-- Sitemap (à configurer)
-- Robots.txt (à configurer)
+```bash
+npm run dev      # Serveur de développement
+npm run build    # Build de production
+npm run start    # Serveur de production
+npm run lint     # Linting ESLint
+```
 
 ## 📄 Licence
 
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser et de le modifier.
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+Ce projet est sous licence MIT.
 
 ## 📧 Contact
 
-Pour toute question, contactez-moi à : [votre-email@example.com](mailto:votre-email@example.com)
+- **GitHub** : [LiamOgu](https://github.com/LiamOgu)
+- **LinkedIn** : [liam-augu](https://linkedin.com/in/liam-augu)
 
 ---
 
-Fait avec ❤️ par [Votre Nom]
+Fait avec ❤️ par Lïam Augu

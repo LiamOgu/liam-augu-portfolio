@@ -2,11 +2,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-white md:ml-64">
+    <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 md:ml-64 transition-colors">
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-600">
-            © {currentYear} Portfolio. Tous droits réservés.
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            © {currentYear} Lïam Augu. Tous droits réservés.
           </p>
 
           <div className="flex gap-6">
@@ -14,7 +14,7 @@ export default function Footer() {
               href="https://github.com/LiamOgu"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@ export default function Footer() {
               href="https://linkedin.com/in/liam-augu"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

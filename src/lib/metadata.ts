@@ -5,7 +5,7 @@ export const siteMetadata = {
   description:
     "Portfolio professionnel présentant mes projets, compétences et expériences en développement web.",
   author: "Lïam Augu",
-  siteUrl: "https://votre-portfolio.com",
+  siteUrl: "https://liamogu.github.com",
   language: "fr",
   keywords: [
     "développeur web",

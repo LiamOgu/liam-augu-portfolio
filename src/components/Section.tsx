@@ -17,7 +17,9 @@ export default function Section({
     <section id={id} className={`py-12 ${className}`}>
       <div className="container mx-auto px-4 max-w-6xl">
         {title && (
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">{title}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-8">
+            {title}
+          </h2>
         )}
         {children}
       </div>

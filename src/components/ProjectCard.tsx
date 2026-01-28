@@ -8,9 +8,9 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 hover:shadow-md transition-all duration-200">
+    <div className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-lg dark:hover:shadow-gray-900/50 transition-all duration-200">
       {/* Image */}
-      <div className="relative h-48 bg-gray-100 overflow-hidden">
+      <div className="relative h-48 bg-gray-100 dark:bg-gray-700 overflow-hidden">
         <Image
           src={project.imageUrl}
           alt={project.title}
@@ -21,11 +21,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Contenu */}
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-50 mb-2 line-clamp-1">
           {project.title}
         </h3>
 
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
           {project.description}
         </p>
 
@@ -34,13 +34,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 text-xs text-gray-600 bg-gray-100 rounded"
+              className="px-2 py-0.5 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded"
             >
               {tag}
             </span>
           ))}
           {project.tags.length > 3 && (
-            <span className="px-2 py-0.5 text-xs text-gray-500">
+            <span className="px-2 py-0.5 text-xs text-gray-500 dark:text-gray-500">
               +{project.tags.length - 3}
             </span>
           )}
@@ -53,7 +53,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-700 border border-gray-200 rounded hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5"
@@ -71,7 +71,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-white bg-gray-900 rounded hover:bg-gray-800 transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-white dark:text-gray-900 bg-gray-900 dark:bg-gray-100 rounded hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
             >
               <svg
                 className="w-3.5 h-3.5"
