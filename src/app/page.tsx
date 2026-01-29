@@ -36,10 +36,9 @@ export default function Home() {
 
           {/* Bouton CV */}
           <a
-            href="/cv.pdf"
+            href="/liam-augu-portfolio.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            download
             className="inline-flex items-center gap-2 px-6 py-2.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
           >
             <svg
