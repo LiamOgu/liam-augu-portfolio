@@ -6,7 +6,6 @@ import { experiences } from "@/data/experiences";
 import { projects } from "@/data/projects";
 import { skillCategories, skills } from "@/data/skills";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -36,9 +35,11 @@ export default function Home() {
           </p>
 
           {/* Bouton CV */}
-          <Link
+          <a
             href="/cv.pdf"
             target="_blank"
+            rel="noopener noreferrer"
+            download
             className="inline-flex items-center gap-2 px-6 py-2.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
           >
             <svg
@@ -55,7 +56,7 @@ export default function Home() {
               />
             </svg>
             Télécharger mon CV
-          </Link>
+          </a>
         </div>
       </Section>
 
