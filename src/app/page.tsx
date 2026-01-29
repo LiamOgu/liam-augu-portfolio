@@ -18,7 +18,7 @@ export default function Home() {
           <div className="relative w-32 h-32 mb-6">
             <div className="relative w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 border-4 border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden">
               <Image
-                src="/images/profile/profile.jpg"
+                src="/images/profile/profilev1.jpg"
                 alt="Photo de profil"
                 sizes="128"
                 fill

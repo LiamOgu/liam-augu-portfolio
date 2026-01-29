@@ -49,7 +49,7 @@ export const experiences: Experience[] = [
   },
   {
     id: "3",
-    title: "Etudiant - Concepteur développeur informatique",
+    title: "Étudiant - Concepteur développeur informatique",
     company: "IPI Toulouse",
     location: "Blagnac, France",
     startDate: "2024-09",
