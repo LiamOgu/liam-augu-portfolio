@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const siteMetadata = {
-  title: "Mon Portfolio - Développeur Full-Stack",
+  title: "Lïam Augu - Développeur Full-Stack",
   description:
     "Portfolio professionnel présentant mes projets, compétences et expériences en développement web.",
   author: "Lïam Augu",
@@ -39,6 +39,12 @@ export const defaultMetadata: Metadata = {
     title: siteMetadata.title,
     description: siteMetadata.description,
     siteName: siteMetadata.title,
+    images: [
+      {
+        url: "/images/profile/profilev1.jpg",
+        alt: "Lïam Augu - Développeur Full-Stack",
+      },
+    ],
   },
   robots: {
     index: true,
