@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           src={project.imageUrl}
           alt={project.title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          className="object-contain bg-white group-hover:scale-105 transition-transform duration-300"
         />
       </div>
 
